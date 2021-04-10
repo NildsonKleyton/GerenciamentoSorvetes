@@ -1,12 +1,13 @@
 package Entidade;
 
 public class Sorvete {
+	private int id;
 	private String sabor;
-	private String tipo;
+	private String tipo;// de Fruta ou essência 
 	private double valor;
+	
 	@Override
 	public boolean equals(Object obj) {
-		// TODO Auto-generated method stub
 		Sorvete sorveteEntrada = (Sorvete)obj;
 		if (sorveteEntrada.getSabor().equals(this.sabor)) {
 			return true;
@@ -15,12 +16,18 @@ public class Sorvete {
 		}
 	}
 
-	public Sorvete(String sabor, String tipo, double valor) {
-		this.sabor = sabor;
-		this.tipo = tipo;
-		this.valor = valor;
+	@Override
+	public String toString() {
+		return "Id="+id+"  sabor=" + sabor + ", tipo=" + tipo + ", valor=" + valor + "";
+	}
+
+	public int getId() {
+		return id;
 	}
 	
+	public void setId(int id) {
+		this.id = id;
+	}
 	public String getSabor() {
 		return sabor;
 	}
@@ -39,5 +46,6 @@ public class Sorvete {
 	public void setValor(double valor) {
 		this.valor = valor;
 	}
+
 	
 }
