@@ -13,7 +13,7 @@ public class GerSoveteria {
 	public static void main(String[] args) {
 		int op, cod = 0;
 		String optx, sabor, tipo = null;
-		double valor,qtd;
+		double valor, qtd;
 
 		Scanner scan = new Scanner(System.in);
 		Scanner scantx = new Scanner(System.in);
@@ -29,30 +29,43 @@ public class GerSoveteria {
 			op = scan.nextInt();
 
 			switch (op) {
-			case 1:// inserir
-				// recebe valores nos atributos
-				//sabor
-				System.out.print("\n***** Incerir *****\nSabor do Sorvete: ");
-				sabor = scantx.nextLine();
-				//tipo
-				boolean rest;
+			case 1:// inserir 
+					// recebe valores nos atributos
+					// sabor
+				boolean rest = false;
+				System.out.print("\n***** Incerir *****");
+				do {
+					System.out.print("\nSabor do Sorvete: ");
+
+					sabor = scantx.nextLine();
+					for (Sorvete svl : listaSorvete) {
+						if (svl.getSabor().equals(sabor)) {
+							System.out.println("Sabor já exixte!");
+							rest = true;
+							break;
+						}else {
+							rest = false;
+						}
+					}
+				} while (rest);
+				// tipo
 				do {
 					System.out.print("\nTipo do Sorvete:\n1 - Fruta\n2 - Essência\nOpção: ");
 					op = scan.nextInt();
 					if (op == 1) {
 						tipo = "Fruta";
-						rest=false;
-					}else if (op == 2) {
+						rest = false;
+					} else if (op == 2) {
 						tipo = "Essência";
-						rest=false;
-					}else {
-						rest=true;
+						rest = false;
+					} else {
+						rest = true;
 					}
-				}while (rest);
-				//quantidade
+				} while (rest);
+				// quantidade
 				System.out.print("\nLitros de Sorvete: ");
-				qtd=scan.nextDouble();
-				//valor
+				qtd = scan.nextDouble();
+				// valor
 				System.out.print("\nValor do Sorvete Ex.: 1,20 ou 1:\nR$");
 				valor = scan.nextDouble();
 				cod++;
@@ -71,29 +84,54 @@ public class GerSoveteria {
 				op = 1;// ao sair do case retorna ao menu
 				break;
 			case 2:// remover
-				if(!listaSorvete.isEmpty()) {
+				if (!listaSorvete.isEmpty()) {
 					lista();
-					System.out.print("\nEscolha um Sorvete para remover.\nInformando o Código: ");
-					for (Sorvete svt : listaSorvete) {
-						cod = scan.nextInt();
-						if (svt.getCod() == cod) {
-							listaSorvete.remove(svt);
+					System.out.print("\nEscolha um Sorvete para remover."
+							+"\nOu \"0\" para deletar a Lista!!!!"
+							+ "+\nInformando o Código: ");
+					cod = scan.nextInt();
+					if (cod==0) {
+						listaSorvete.removeAll(listaSorvete);
+					}else {
+						//remover 1 ok
+						int existe = -1;
+						for (Sorvete svl : listaSorvete) {
+							if (svl.getCod() == cod) {
+								listaSorvete.remove(svl);
+								int i =-1;
+								existe = i++;
+							}
+						}
+						if (existe > -1) {
 							System.out.println("*****Removido*****\n");
-							break;
-						}else{
+						} else {
 							System.out.println("-----Não existe-----\n");
 						}
+						//remover 2 ok 
+//						int existe = -1;
+//						for (int i=0; i< listaSorvete.size(); i++) {
+//							Sorvete svl = listaSorvete.get(i);
+//							if (svl.getCod() == cod) {
+//								listaSorvete.remove(svl);
+//								existe = i;
+//							}
+//						}
+//						if (existe > -1) {
+//							System.out.println("*****Removido*****\n");
+//						}else {
+//							System.out.println("-----Não existe-----\n");
+//						}
 					}
-				}else {
+				} else {
 					System.out.println("\nLista vazia!!!\n");
 				}
 				op = 1;// ao sair do case retorna ao menu
 				break;
 			case 3:// listar
-				if(!listaSorvete.isEmpty()) {
+				if (!listaSorvete.isEmpty()) {
 					lista();
 					System.out.println("\n");
-				}else {
+				} else {
 					System.out.println("\nLista vazia!!!\n");
 				}
 				op = 1;// ao sair do case retorna ao menu
@@ -111,12 +149,11 @@ public class GerSoveteria {
 		} while (op == 1);
 	}
 
-
 	public static void lista() {
 		System.out.println("\n");
 		System.out.println("Lista de Sorvetes");
-		for (Sorvete svt : listaSorvete) {
-			System.out.println(svt.toString());
+		for (Sorvete svl : listaSorvete) {
+			System.out.println(svl.toString());
 		}
 	}
 

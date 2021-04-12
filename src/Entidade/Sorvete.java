@@ -10,7 +10,7 @@ public class Sorvete {
 	@Override
 	public boolean equals(Object obj) {
 		Sorvete sorveteEntrada = (Sorvete)obj;
-		if (sorveteEntrada.getSabor().equals(this.sabor)) {
+		if (sorveteEntrada.getSabor().equalsIgnoreCase(this.sabor)) {
 			return true;
 		}else {
 			return false;
