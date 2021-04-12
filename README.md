@@ -1,11 +1,14 @@
 # GerenciamentoSorvetes
-Nesta aula revisamos do básico ate o polimorfismo e lista.
 
-Atividade:
+**_Atividade Treinamento MV - Curso Fuctura_**
+
+**_Projeto Gerenciamento se Sorvetes_**
+
+**Atividade:**
 
 Criar um programa de gerenciamento de sorvetes de uma sorveteria.
 
-Funcionalidades:
+##Funcionalidades:
 - [x] Inserir sorvete ✔
   - [x] Evitar nome de produtos iguas(Inginorando case).
 - [x] Remover sorvete✔
@@ -22,3 +25,13 @@ Funcionalidades:
 
 - OBS3: Quero uma classe main, onde, possa fazer todas as interações de inserir, remover e listar
 
+## 🛠 Cosntruído com:
+:computer: ECLIPSE Java EE <br>
+
+## :postbox: Contato da equipe
+**_nildsonkleyton@hotmail.com_**
+
+## Licença
+Nenhuma lincesa foi adicionada.
+
+![tenor](https://media1.tenor.com/images/505ddb5e0b0e8c3e96b66e1469ef47c1/tenor.gif?itemid=4903969) 
