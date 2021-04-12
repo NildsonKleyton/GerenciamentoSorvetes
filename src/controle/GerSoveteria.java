@@ -8,114 +8,94 @@ import Entidade.Sorvete;
 
 public class GerSoveteria {
 
-	//cria uma variável global
-	static List<Sorvete> listaSorvete = new ArrayList<Sorvete>();
-	static Scanner scan = new Scanner(System.in);
-	static boolean res=true;
-	static Sorvete sv = new Sorvete();
+	static List<Sorvete> listaSorvete = new ArrayList<Sorvete>();// cria uma variável global
+
 	public static void main(String[] args) {
-		String op ;
-		int cod=-1 ;
-		String sabor = null , tipo = null;
-		double valor, qtd;
+		int op = 0, cod = -1;
+		String sabor, tipo = null;
+		double valor;
+
+		Scanner scan = new Scanner(System.in);
+		Scanner scantx = new Scanner(System.in);
 		do {
-			op = menu();
-						
+			menu();
+			op = scan.nextInt();
+
 			switch (op) {
-			case "1"://inserir
-				//recebe valores nos atributos
-				//sabor
+			case 1:// inserir
+					// recebe valores nos atributos
 				System.out.print("Sabor do Sorvete: ");
-				sabor = scan.nextLine();
-				//tipo
+				sabor = scantx.nextLine();
+
 				System.out.print("\nTipo do Sorvete:\n1 - Fruta\n2 - Essência\nOpção: ");
-				op = scan.nextLine();
-				if(op == "1") {
-					tipo ="Fruta";
+				op = scan.nextInt();
+				if (op == 1) {
+					tipo = "Fruta";
 				}
-				if(op=="2") {
-					tipo="Essência";
+				if (op == 2) {
+					tipo = "Essência";
 				}
-				//quantidade
-				System.out.println("\nQuantos Litros: ");
-				qtd = scan.nextDouble();
-				//valor
-				System.out.print("\nValor do Sorvete\nEx: 1,20 ou 1:\nR$");
+
+				System.out.print("\nValor do Sorvete Ex.: 1,20 ou 1:\nR$");
 				valor = scan.nextDouble();
 				cod++;
-				
-				//cria e obj sorvete 
-
+				// cria e obj sorvete
+				Sorvete sv = new Sorvete();
 				sv.setCod(cod);
 				sv.setSabor(sabor);
 				sv.setTipo(tipo);
-				sv.setQuantidade(qtd);
 				sv.setValor(valor);
-				
-				//add na lista
+
+				// add na lista
 				listaSorvete.add(sv);
-				
-				op="1";//ao sair do case retorna ao menu
+
+				op = 1;// ao sair do case retorna ao menu
 				break;
-			case "2"://remover 
+			case 2:// remover
 				lista();
-				System.out.print("Escolha um Sorvete para remover.\nInformando o ID: ");
-				cod = scan.nextInt();
-				listaSorvete.remove(cod);
-				
-				op="1";//ao sair do case retorna ao menu
-				break;			
-			case "3"://listar
-				lista();
-				op="1";//ao sair do case retorna ao menu
+				System.out.print("\nEscolha um Sorvete para remover.\nInformando o ID: ");
+				for (Sorvete svt : listaSorvete) {
+					cod = scan.nextInt();
+					if (svt.getCod() == cod) {
+						listaSorvete.remove(svt);
+						System.out.println("removido");
+						break;
+					}else{
+						System.out.println("não existe");
+					}
+				}
+				op = 1;// ao sair do case retorna ao menu
 				break;
-			case "0":
+			case 3:// listar
+				lista();
+				System.out.println("\n");
+				op = 1;// ao sair do case retorna ao menu
+				break;
+			case 0:
 				System.out.println("Sistema Finalizado.");
-				op="0";//ao sair do case retorna ao menu
+				op = 0;// ao sair do case retorna ao menu
 				break;
 			default:
-				System.out.println("\n******Opção invalida.******\n\n");
-				op="1";//ao sair do case retorna ao menu
+				System.out.println("Opção invalida.");
+				op = 1;// ao sair do case retorna ao menu
 				break;
 			}
-	
-		} while (op=="1");
+
+		} while (op == 1);
 	}
-	/**
-	 * @author Nildson Kleyton (MucuZulo)
-	 * @return 
-	 * Menu onde retorna a opção escolhida.
-	 * <br>1 - Inserir sorvete
-	 * <br>2 - Remover sorvete
-	 * <br>3 - Listar todos os sorvetes
-	 * <br>0 - Sair
-	 */
-	public static String menu() {
-		String op ;
-		do {
-			System.out.println("==============================");
-			System.out.println("        Funcionalidades\n");
-			System.out.println("1 - Inserir sorvete");
-			System.out.println("2 - Remover sorvete");
-			System.out.println("3 - Listar todos os sorvetes");
-			System.out.println("0 - Sair");
-			System.out.println("==============================");
-			System.out.print("Escolha um Opção: ");
-			op = scan.nextLine();
-			if (op=="1" ||op=="2" ||op=="3" ||op=="0" ) {
-				res=true;
-			}else {
-				res=false;
-			}
-		} while(res);
-			
-		return op;
+
+	public static void menu() {
+
+		System.out.println("==============================");
+		System.out.println("        Funcionalidades\n");
+		System.out.println("1 - Inserir sorvete");
+		System.out.println("2 - Remover sorvete");
+		System.out.println("3 - Listar todos os sorvetes");
+		System.out.println("0 - Sair");
+		System.out.println("==============================");
+		System.out.print("Escolha um Opção: ");
 	}
-	
-	/**
-	 * @author Nildson Kleyton(McuZulo)
-	 * @return Retorna uma lista se não estiver vazia.
-	 */
+
 	public static void lista() {
 		System.out.println("\n");
 		System.out.println("Lista de Sorvetes");

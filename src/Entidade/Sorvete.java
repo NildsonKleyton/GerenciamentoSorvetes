@@ -19,48 +19,50 @@ public class Sorvete {
 
 	@Override
 	public String toString() {
-		return "Código="+cod+"  sabor=" + sabor + ", tipo=" + tipo + ", valor=" + valor + "";
+		return "Código="+cod+" sabor="+sabor+" tipo="+ tipo + " valor=" + valor + "";
 	}
 
 	public int getCod() {
 		return cod;
 	}
 
-	public String getSabor() {
-		return sabor;
-	}
-
-	public String getTipo() {
-		return tipo;
-	}
-
-	public double getQuantidade() {
-		return quantidade;
-	}
-
-	public double getValor() {
-		return valor;
-	}
-
 	public void setCod(int cod) {
 		this.cod = cod;
+	}
+
+	public String getSabor() {
+		return sabor;
 	}
 
 	public void setSabor(String sabor) {
 		this.sabor = sabor;
 	}
 
+	public String getTipo() {
+		return tipo;
+	}
+
 	public void setTipo(String tipo) {
 		this.tipo = tipo;
+	}
+
+	public double getQuantidade() {
+		return quantidade;
 	}
 
 	public void setQuantidade(double quantidade) {
 		this.quantidade = quantidade;
 	}
 
+	public double getValor() {
+		return valor;
+	}
+
 	public void setValor(double valor) {
 		this.valor = valor;
 	}
+
+
 
 	
 	
