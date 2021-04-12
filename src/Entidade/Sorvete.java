@@ -19,7 +19,7 @@ public class Sorvete {
 
 	@Override
 	public String toString() {
-		return "Código="+cod+" sabor="+sabor+" tipo="+ tipo + " valor=" + valor + " Quantidade"+quantidade+"L";
+		return "Código="+cod+" sabor="+sabor+" tipo="+ tipo + " valor p/ litro =R$" + valor + " Quantidade"+quantidade+"L Valor Total:R$"+valor*quantidade ;
 	}
 
 	public int getCod() {

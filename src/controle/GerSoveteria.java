@@ -33,7 +33,7 @@ public class GerSoveteria {
 					// recebe valores nos atributos
 					// sabor
 				boolean rest = false;
-				System.out.print("\n***** Incerir *****");
+				System.out.print("\n***** Inserir *****");
 				do {
 					System.out.print("\nSabor do Sorvete: ");
 
@@ -90,9 +90,9 @@ public class GerSoveteria {
 							+"\nOu \"0\" para deletar a Lista!!!!"
 							+ "+\nInformando o Código: ");
 					cod = scan.nextInt();
-					if (cod==0) {
-						listaSorvete.removeAll(listaSorvete);
-					}else {
+//					if (cod==0) {
+//						listaSorvete.removeAll(listaSorvete);
+//					}else {
 						//remover 1 ok
 						int existe = -1;
 						for (Sorvete svl : listaSorvete) {
@@ -100,6 +100,7 @@ public class GerSoveteria {
 								listaSorvete.remove(svl);
 								int i =-1;
 								existe = i++;
+								break;
 							}
 						}
 						if (existe > -1) {
@@ -114,6 +115,7 @@ public class GerSoveteria {
 //							if (svl.getCod() == cod) {
 //								listaSorvete.remove(svl);
 //								existe = i;
+//								break;
 //							}
 //						}
 //						if (existe > -1) {
@@ -121,7 +123,7 @@ public class GerSoveteria {
 //						}else {
 //							System.out.println("-----Não existe-----\n");
 //						}
-					}
+//					}
 				} else {
 					System.out.println("\nLista vazia!!!\n");
 				}
@@ -151,10 +153,15 @@ public class GerSoveteria {
 
 	public static void lista() {
 		System.out.println("\n");
-		System.out.println("Lista de Sorvetes");
+		System.out.println("*****Lista de Sorvetes*****\n");
+		double vTotal=0,qLitros=0;
 		for (Sorvete svl : listaSorvete) {
 			System.out.println(svl.toString());
+			vTotal=vTotal+(svl.getValor()*svl.getQuantidade());
+			qLitros=qLitros+svl.getQuantidade();
 		}
+		System.out.println("\nTotal Litros em estoque: R$"+qLitros);
+		System.out.println("\nValor total de estoque: R$"+vTotal);
 	}
 
 }
