@@ -6,7 +6,7 @@ Atividade:
 Criar um programa de gerenciamento de sorvetes de uma sorveteria.
 
 Funcionalidades:
-- [ ] Inserir sorvete
+- [ok] Inserir sorvete
 - [ ] Remover sorvete
 - [ ] Listar todos os sorvetes
 
