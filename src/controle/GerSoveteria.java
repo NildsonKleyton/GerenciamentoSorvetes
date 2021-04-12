@@ -39,7 +39,7 @@ public class GerSoveteria {
 
 					sabor = scantx.nextLine();
 					for (Sorvete svl : listaSorvete) {
-						if (svl.getSabor().equals(sabor)) {
+						if (svl.getSabor().equalsIgnoreCase(sabor)) {
 							System.out.println("Sabor já exixte!");
 							rest = true;
 							break;
@@ -131,7 +131,7 @@ public class GerSoveteria {
 				break;
 			case 3:// listar
 				if (!listaSorvete.isEmpty()) {
-					lista();
+					lista1();
 					System.out.println("\n");
 				} else {
 					System.out.println("\nLista vazia!!!\n");
@@ -150,18 +150,25 @@ public class GerSoveteria {
 
 		} while (op == 1);
 	}
-
 	public static void lista() {
 		System.out.println("\n");
-		System.out.println("*****Lista de Sorvetes*****\n");
-		double vTotal=0,qLitros=0;
+		System.out.println("********Lista de Sorvetes********\n");
 		for (Sorvete svl : listaSorvete) {
 			System.out.println(svl.toString());
+		}
+		System.out.println("\n*******************************");
+
+	}
+	public static void lista1() {
+		lista();
+		double vTotal=0,qLitros=0;
+		for (Sorvete svl : listaSorvete) {
 			vTotal=vTotal+(svl.getValor()*svl.getQuantidade());
 			qLitros=qLitros+svl.getQuantidade();
 		}
-		System.out.println("\nTotal Litros em estoque: R$"+qLitros);
+		System.out.println("Total Litros em estoque: R$"+qLitros);
 		System.out.println("\nValor total de estoque: R$"+vTotal);
+		System.out.println("*******************************\n");
 	}
 
 }
