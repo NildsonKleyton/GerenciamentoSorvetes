@@ -110,16 +110,16 @@ public class GerSoveteria {
 							System.out.println("-----Não existe-----\n");
 						}
 						//remover 2 ok 
-//						int existe = -1;
+//						boolean existe = false;
 //						for (int i=0; i< listaSorvete.size(); i++) {
 //							Sorvete svl = listaSorvete.get(i);
 //							if (svl.getCod() == cod) {
 //								listaSorvete.remove(svl);
-//								existe = i;
+//								existe = true;
 //								break;
 //							}
 //						}
-//						if (existe > -1) {
+//						if (existe) {
 //							System.out.println("*****Removido*****\n");
 //						}else {
 //							System.out.println("-----Não existe-----\n");
