@@ -90,20 +90,21 @@ public class GerSoveteria {
 							+"\nOu \"0\" para deletar a Lista!!!!"
 							+ "+\nInformando o Código: ");
 					cod = scan.nextInt();
-//					if (cod==0) {
-//						listaSorvete.removeAll(listaSorvete);
-//					}else {
+					if (cod==0) {
+						listaSorvete.removeAll(listaSorvete);
+						System.out.println("*****Removido*****\n");
+					}else {
 						//remover 1 ok
-						int existe = -1;
+						boolean existe = false;
 						for (Sorvete svl : listaSorvete) {
 							if (svl.getCod() == cod) {
 								listaSorvete.remove(svl);
 								int i =-1;
-								existe = i++;
+								existe = true;
 								break;
 							}
 						}
-						if (existe > -1) {
+						if (existe) {
 							System.out.println("*****Removido*****\n");
 						} else {
 							System.out.println("-----Não existe-----\n");
@@ -123,7 +124,7 @@ public class GerSoveteria {
 //						}else {
 //							System.out.println("-----Não existe-----\n");
 //						}
-//					}
+					}
 				} else {
 					System.out.println("\nLista vazia!!!\n");
 				}
