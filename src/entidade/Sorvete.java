@@ -1,4 +1,4 @@
-package Entidade;
+package entidade;
 
 public class Sorvete {
 	private int cod;
