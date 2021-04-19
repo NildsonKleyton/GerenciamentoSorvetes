@@ -79,7 +79,7 @@ public class GerSoveteria {
 
 				// add na lista
 				listaSorvete.add(sv);
-				System.out.println("***** Incerido *****\n");
+				System.out.println("***** Inserido *****\n");
 
 				op = 1;// ao sair do case retorna ao menu
 				break;
