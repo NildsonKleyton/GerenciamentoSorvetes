@@ -12,8 +12,8 @@ Criar um programa de gerenciamento de sorvetes de uma sorveteria.
 - [x] Inserir sorvete ✔
   - [x] Evitar nome de produtos iguas(Inginorando case).
 - [x] Remover sorvete✔
-  - [x] Remeve item
-  - [x] remeve tudo
+  - [x] Remover item
+  - [x] remover tudo
   - [x] Não remove lista vazia
 - [x] Listar todos os sorvetes✔
   - [x] Lista simplis (Mosta apenas as os itens)
