@@ -8,7 +8,7 @@
 
 Criar um programa de gerenciamento de sorvetes de uma sorveteria.
 
-##Funcionalidades:
+## Funcionalidades:
 - [x] Inserir sorvete ✔
   - [x] Evitar nome de produtos iguas(Inginorando case).
 - [x] Remover sorvete✔
